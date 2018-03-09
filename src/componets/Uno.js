@@ -8,19 +8,19 @@ class Uno extends Component {
         <div className="Numbers">
           <div>
             <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <button onClick={props.number1}>1</button>
+            <button onClick={props.number2}>2</button>
+            <button onClick={props.number3}>3</button>
             </div> 
            <div> 
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <button onClick={props.number4}>4</button>
+            <button onClick={props.number5}>5</button>
+            <button onClick={props.number6}>6</button>
            </div>
            <div> 
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+            <button onClick={props.number7}>7</button>
+            <button onClick={props.number8}>8</button>
+            <button onClick={props.number9}>9</button>
             </div> 
         </div>
         <div className="Oper">
