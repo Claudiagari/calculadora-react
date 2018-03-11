@@ -49,10 +49,9 @@ const reducer =  (state = initialState,action) =>{
         
         case 'RESET' : 
         return Object.assign({},state,{ number:0 });
-        
-       
-       
-        
+        case 'DELETE':
+        return Object.assign({},state,{number:deleteNum(state.number)});
+   
         default : 
         return state;
     }
@@ -77,7 +76,18 @@ function opera(num1,num2,operator){
         default :
         return num1;
     }
+}
 
+function deleteNum(num){
+    let number = num.toString()
+    if(number.length>1){
+        let arrayNumber = Array.from(number);
+    arrayNumber.splice(arrayNumber.length-1,1)
+     let preNumber =arrayNumber.join('')
+   return parseInt(preNumber)
+    } else{
+        return 0
+   }
 }
 
 const store = createStore(reducer);

@@ -168,7 +168,10 @@ function mapDispatchToProps(dispatch) {
          dispatch(action);
        },
        onCaptureDelet: () => {
-        alert('hola aun el equipo esta trabajando para una mejor experiencia en sus calculos!');
+        const action = {
+            type: 'DELETE'
+      };
+      dispatch(action);
        }
 
       
