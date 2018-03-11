@@ -33,3 +33,15 @@
 .radius{
   border-radius: 10px;
 }
+
+.console-style{
+  height: 80vh;
+  margin: 50px;
+  background-color: rgb(44, 47, 63);
+  color: white;
+  padding: 20px;
+}
+
+p{
+  padding:5px;
+}

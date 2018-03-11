@@ -8,44 +8,48 @@ function Calculator(props) {
   
   return (
     <div className="d-flex align-items-center h100 ">
-    <div className="container w30 bg-grey radius">
-    <div className="row ">
-    <div className="col-12  p-4 text-right font-1 ">{props.number}</div>
+      <div className="container w30 bg-grey radius col-md-4">
+        <div className="row ">
+          <div className="col-12  p-4 text-right font-1 ">{props.number}</div>
+        </div>
+        <div className="row font-1">
+          <div className="col-3  p-3 bg-red" onClick={props.sum}><div>+</div></div>
+          <div className="col-3  p-3 bg-red" onClick={props.rest}>-</div>
+          <div className="col-3  p-3 bg-red" onClick={props.multi}>*</div>
+          <div className="col-3  p-3 bg-red" onClick={props.divi}>/</div>
+        </div>
+        <div className="row font-1">
+          <div className="col-4  p-3" onClick={props.onCapture1}>1</div>
+          <div className="col-4  p-3" onClick={props.onCapture2}>2</div>
+          <div className="col-4  p-3" onClick={props.onCapture3}>3</div>
+        </div>
+        <div className="row font-1">
+          <div className="col-4  p-3" onClick={props.onCapture4}>4</div>
+          <div className="col-4  p-3" onClick={props.onCapture5}>5</div>
+          <div className="col-4  p-3" onClick={props.onCapture6}>6</div>
+        </div>
+        <div className="row font-1">
+          <div className="col-4  p-3" onClick={props.onCapture7}>7</div>
+          <div className="col-4  p-3" onClick={props.onCapture8}>8</div>
+          <div className="col-4  p-3" onClick={props.onCapture9}>9</div>
+        </div>
+        <div className="row font-1">
+          <div className="col-4  p-3" onClick={props.onCaptureReset}>C</div>
+          <div className="col-4  p-3" onClick={props.onCapture0}>0</div>
+          <div className="col-4  p-3" >.</div>
+        </div>
+        <div className="row font-1">
+          <div className="col-12 p-3 orange" onClick={props.equal}><span className="icon-arrow-left"></span></div>
+          <div className="col-12 p-3 orange" onClick={props.equal}>=</div>
+        </div>
+      </div>
+      <div className="container w30 radius col-md-6 console-style">
+        <p>{props.number}</p>
+        <p>{props.number}</p>
+        <p>{props.number}</p>
+        <p>{props.number}</p>
+      </div>
     </div>
-    <div className="row font-1">
-    <div className="col-3  p-3 bg-red" onClick={props.sum}><div>+</div></div>
-    <div className="col-3  p-3 bg-red" onClick={props.rest}>-</div>
-    <div className="col-3  p-3 bg-red" onClick={props.multi}>*</div>
-    <div className="col-3  p-3 bg-red" onClick={props.divi}>/</div>
-    
-    </div>
-    <div className="row font-1">
-    <div className="col-4  p-3" onClick={props.onCapture1}>1</div>
-    <div className="col-4  p-3" onClick={props.onCapture2}>2</div>
-    <div className="col-4  p-3" onClick={props.onCapture3}>3</div>
-    </div>
-    <div className="row font-1">
-    <div className="col-4  p-3" onClick={props.onCapture4}>4</div>
-    <div className="col-4  p-3" onClick={props.onCapture5}>5</div>
-    <div className="col-4  p-3" onClick={props.onCapture6}>6</div>
-    </div>
-    <div className="row font-1">
-    <div className="col-4  p-3" onClick={props.onCapture7}>7</div>
-    <div className="col-4  p-3" onClick={props.onCapture8}>8</div>
-    <div className="col-4  p-3" onClick={props.onCapture9}>9</div>
-    </div>
-    <div className="row font-1">
-    <div className="col-4  p-3" onClick={props.onCaptureReset}>C</div>
-    <div className="col-4  p-3" onClick={props.onCapture0}>0</div>
-    <div className="col-4  p-3" >.</div>
-    </div>
-    <div className="row font-1">
-    <div className="col-12 p-3 orange" onClick={props.equal} id="delete"><span className="icon-arrow-left"></span></div>
-    <div className="col-12 p-3 orange" onClick={props.equal}>=</div>
-    </div>
-   
-    </div>
-</div>
   )
 }
 function show(props){
@@ -157,7 +161,7 @@ function mapDispatchToProps(dispatch) {
         type: 'DIVI'
        };
        dispatch(action);
-},
+    },
       equal: () => {
        const action = {
               type: 'EQUAL'
