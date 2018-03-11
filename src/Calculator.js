@@ -10,9 +10,6 @@ function Calculator(props) {
     <div>
     <h1>CALCULADORA</h1>
     <div className="d-flex align-items-center h100 ">
-        
-        
-        
       <div className="container w30 bg-grey radius col-md-4">
         <div className="row ">
           <div className="col-12  p-4 text-right font-1 ">{props.number}</div>
@@ -39,7 +36,7 @@ function Calculator(props) {
           <div className="col-4  p-3 item" onClick={props.onCapture9}>9</div>
         </div>
         <div className="row font-1">
-          <div className="col-4  p-3 item" onClick={props.Number}>C</div>
+          <div className="col-4  p-3 item" onClick={props.onCaptureReset}>C</div>
           <div className="col-4  p-3 item" onClick={props.onCapture0}>0</div>
           <div className="col-4  p-3 item" >.</div>
         </div>
@@ -142,7 +139,7 @@ function mapDispatchToProps(dispatch) {
       },
       rest: () => {
         const action = {
-            type: 'REST'
+            type: 'RESET'
         };
         dispatch(action);
       },
@@ -171,7 +168,6 @@ function mapDispatchToProps(dispatch) {
          dispatch(action);
        },
        onCaptureDelet: () => {
-           
         alert('hola aun el equipo esta trabajando para una mejor experiencia en sus calculos!');
        }
 
