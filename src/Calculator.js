@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
+import './icon/style.css'
+import './delete'
 
 function Calculator(props) {
   
@@ -38,6 +40,7 @@ function Calculator(props) {
     <div className="col-4  p-3" >.</div>
     </div>
     <div className="row font-1">
+    <div className="col-12 p-3 orange" onClick={props.equal} id="delete"><span className="icon-arrow-left"></span></div>
     <div className="col-12 p-3 orange" onClick={props.equal}>=</div>
     </div>
    
@@ -45,12 +48,25 @@ function Calculator(props) {
 </div>
   )
 }
+function show(props){
+    console.log('hola');
+}
+function mapStateToProps(state) {
+    console.log('mapStateToProps', state.number);
+    return {
+         //number: state.number,
+         
+    }
+    
+  }
 
 function mapStateToProps(state) {
-  //console.log('mapStateToProps', state);
+  console.log('mapStateToProps', state.number);
   return {
        number: state.number,
+       
   }
+  
 }
 
 function mapDispatchToProps(dispatch) {
@@ -60,6 +76,7 @@ function mapDispatchToProps(dispatch) {
           const action = {
               type: 'NUMBER_1'
           };
+          
           dispatch(action);
       },
       onCapture2: () => {

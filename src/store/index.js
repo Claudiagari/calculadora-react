@@ -50,6 +50,7 @@ const reducer =  (state = initialState,action) =>{
         case 'RESET' : 
         return Object.assign({},state,{ number:0 });
         
+        
        
         
         default : 
