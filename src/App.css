@@ -1,3 +1,13 @@
+body {
+  background: rgb(241, 234, 234);
+  font-family: 'Courier New', Courier, monospace;
+}
+h1 {
+  margin-bottom: 1%;
+}
+.item:hover {
+  background: rgba(202, 152, 123, 0.548)  ;
+}
 .App {
   text-align: center;
 }
