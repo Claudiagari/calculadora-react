@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Calculator from './Calculator';
-import store from './store/';
-import './App.css';
+import Calculator from '../containers/Calculator';
+import store from '../reducers/index';
+import '../App.css';
 
 // class Console extends Component{
 //   render() {
