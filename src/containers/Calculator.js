@@ -19,7 +19,6 @@ import {actionReset} from '../actions/calculate'
 import {actionDelete} from '../actions/calculate'
 import '../App.css';
 import '../icon/style.css'
-import '../delete'
 
 
 
@@ -28,7 +27,7 @@ class Calculator extends Component {
   render() {
     return (
       <div>
-      <h1>CALCULADORA</h1>
+      
       <div className="d-flex align-items-center h100 ">
         <div className="container w30 bg-grey radius col-md-4">
           <div className="row ">
@@ -58,18 +57,22 @@ class Calculator extends Component {
           <div className="row font-1">
             <div className="col-4  p-3 item" onClick={this.props.onCaptureReset}>C</div>
             <div className="col-4  p-3 item" onClick={this.props.onCapture0}>0</div>
-            <div className="col-4  p-3 item" >.</div>
+            <div className="col-4 p-3 item " onClick={this.props.onCaptureDelet}><span className="icon-arrow-left item"></span></div>
           </div>
           <div className="row font-1">
-            <div className="col-12 p-3 orange " onClick={this.props.onCaptureDelet}><span className="icon-arrow-left item"></span></div>
+            
             <div className="col-12 p-3 orange item" onClick={this.props.equal}>=</div>
           </div>
         </div>
         <div className="container w30 radius col-md-5 console-style">
-          <p>{this.props.number}</p>
-          <p>{this.props.number}</p>
-          <p>{this.props.number}</p>
-          <p>{this.props.number}</p>
+        <h2>HISTORIAL</h2>
+           <ul className="list">
+                  {
+                    this.props.historial.map((number, index) =>{
+                      return (<li key={index}>{number}</li> )
+                    })                
+                  }  
+           </ul>
         </div>
       </div>
       </div>
@@ -79,84 +82,85 @@ class Calculator extends Component {
 
 function mapStateToProps(state) {
   return {
-       number: state.number,
+    number: state.number,
+    historial: state.historial
   }
-  
+
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-     
-      onCapture1: () => {
-         
-          dispatch(actionNumber1);
-      },
-      onCapture2: () => {
-          
-          dispatch(actionNumber2);
-      },
-      onCapture3: () => {
-          
-          dispatch(actionNumber3);
-      },
-      onCapture4: () => {
-          
-          dispatch(actionNumber4);
-      },
-      onCapture5: () => {
-          
-          dispatch(actionNumber5);
-      },
-      onCapture6: () => {
-          
-          dispatch(actionNumber6);
-      },
-      onCapture7: () => {
-          
-          dispatch(actionNumber7);
-      },
-      onCapture8: () => {
-          
-          dispatch(actionNumber8);
-      },
-      onCapture9: () => {
-          
-          dispatch(actionNumber9);
-      },
-      onCapture0: () => {
-        
-        dispatch(actionNumber0);
+
+    onCapture1: () => {
+
+      dispatch(actionNumber1);
+    },
+    onCapture2: () => {
+
+      dispatch(actionNumber2);
+    },
+    onCapture3: () => {
+
+      dispatch(actionNumber3);
+    },
+    onCapture4: () => {
+
+      dispatch(actionNumber4);
+    },
+    onCapture5: () => {
+
+      dispatch(actionNumber5);
+    },
+    onCapture6: () => {
+
+      dispatch(actionNumber6);
+    },
+    onCapture7: () => {
+
+      dispatch(actionNumber7);
+    },
+    onCapture8: () => {
+
+      dispatch(actionNumber8);
+    },
+    onCapture9: () => {
+
+      dispatch(actionNumber9);
+    },
+    onCapture0: () => {
+
+      dispatch(actionNumber0);
     },
 
-      sum: () => {
-        
-          dispatch(actionSum);
-      },
-      rest: () => {
-       
-        dispatch(actionRest);
-      },
-      multi: () => {
-    
+    sum: () => {
+
+      dispatch(actionSum);
+    },
+    rest: () => {
+
+      dispatch(actionRest);
+    },
+    multi: () => {
+
       dispatch(actionMulti);
-      },
-       divi: () => {
-  
-       dispatch(actionDivi);
     },
-      equal: () => {
-       
-        dispatch(actionEqual);
-      },
-      onCaptureReset: () => {
-        
-         dispatch(actionReset);
-       },
-       onCaptureDelet: () => {
-        alert('hola aun el equipo esta trabajando para una mejor experiencia en sus calculos!');
-       }
+    divi: () => {
 
-      
+      dispatch(actionDivi);
+    },
+    equal: () => {
+
+      dispatch(actionEqual);
+    },
+    onCaptureReset: () => {
+
+      dispatch(actionReset);
+    },
+    onCaptureDelet: () => {
+      dispatch(actionDelete);
+    }
+
+
   }
 }
 

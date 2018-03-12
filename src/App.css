@@ -50,8 +50,13 @@ h1 {
   background-color: rgb(44, 47, 63);
   color: white;
   padding: 20px;
+  font-size: 2em;
 }
 
 p{
   padding:5px;
+}
+
+.list{
+  list-style: none;
 }

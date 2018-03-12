@@ -5,6 +5,7 @@ const initialState = {
 number : 0,
 numberCalculator :0,
 operator:null,
+historial:[],
 };
 
 // Reducer
@@ -34,22 +35,24 @@ const reducer =  (state = initialState,action) =>{
         return Object.assign({},state,{ number :parseInt(state.number+'0')   });
         case 'SUM' : 
         return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'+' });
+                                        number:0,operator:'+',historial:historial(state.number,state.historial)  });
         case 'REST' : 
         return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'-' });
+                                        number:0,operator:'-',historial:historial(state.number,state.historial) });
         case 'MULTI' : 
         return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'*' }); 
+                                        number:0,operator:'*',historial:historial(state.number,state.historial) }); 
         case 'DIVI' : 
         return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'/' });                               
+                                        number:0,operator:'/',historial:historial(state.number,state.historial) });                               
         case 'EQUAL' : 
-        return Object.assign({},state,{ number:opera(state.numberCalculator,state.number,state.operator) });
+        return Object.assign({},state,{ number:opera(state.numberCalculator,state.number,state.operator) ,historial:historial(state.number,state.historial)});
         
         case 'RESET' : 
-        return Object.assign({},state,{ number:0 });
+        return Object.assign({},state,{ number:0   });
         
+        case 'DELETE':
+        return Object.assign({},state,{number:deleteNum(state.number)});
        
        
         
@@ -59,26 +62,48 @@ const reducer =  (state = initialState,action) =>{
     return state;
 }
 
-function opera(num1,num2,operator){
-    switch (operator){
-        case '+' :
-        return num1 + num2;
-        case '-' :
-        return num1 - num2;
-        case '*' :
-        return num1 * num2;
-        case '/' :
-        if(num2!==0){
-          return num1 / num2;
-        }else{
-          return 0;
-        }
-        
-        default :
-        return num1;
-    }
+function opera(num1, num2, operator) {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      if (num2 !== 0) {
+        return num1 / num2;
+      } else {
+        return 0;
+      }
+
+    default:
+      return num1;
+  }
 
 }
+
+function historial(num, array) {
+
+  let arrayHistorial = array;
+  arrayHistorial.push(num);
+  console.log(arrayHistorial);
+  return arrayHistorial
+
+}
+
+function deleteNum(num) {
+  let number = num.toString()
+  if (number.length > 1) {
+    let arrayNumber = Array.from(number);
+    arrayNumber.splice(arrayNumber.length - 1, 1)
+    let preNumber = arrayNumber.join('')
+    return parseInt(preNumber)
+  } else {
+    return 0
+  }
+}
+
 
 const store = createStore(reducer);
 
