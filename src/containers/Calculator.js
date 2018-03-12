@@ -17,6 +17,7 @@ import {actionDivi} from '../actions/calculate'
 import {actionEqual} from '../actions/calculate'
 import {actionReset} from '../actions/calculate'
 import {actionDelete} from '../actions/calculate'
+import {actionPoint} from '../actions/calculate'
 import '../App.css';
 import '../icon/style.css'
 
@@ -31,13 +32,14 @@ class Calculator extends Component {
       <div className="d-flex align-items-center h100 ">
         <div className="container w30 bg-grey radius col-md-4">
           <div className="row ">
-            <div className="col-12  p-4 text-right font-1 ">{this.props.number}</div>
+            <div className="col-12  p-4 text-right font-1 ">{parseFloat(this.props.number)}</div>
           </div>
           <div className="row font-1">
             <div className="col-3  p-3 bg-red item" onClick={this.props.sum}><div>+</div></div>
-            <div className="col-3  p-3 bg-red item" onClick={this.props.rest}>-</div>
+            <div className="col-2  p-3 bg-red item" onClick={this.props.rest}>-</div>
             <div className="col-3  p-3 bg-red item" onClick={this.props.multi}>*</div>
-            <div className="col-3  p-3 bg-red item" onClick={this.props.divi}>/</div>
+            <div className="col-2  p-3 bg-red item" onClick={this.props.divi}>/</div>
+            <div className="col-2  p-3 bg-red item" onClick={this.props.onCapturePoint}>.</div>
           </div>
           <div className="row font-1">
             <div className="col-4  p-3 item" onClick={this.props.onCapture1}>1</div>
@@ -60,8 +62,7 @@ class Calculator extends Component {
             <div className="col-4 p-3 item " onClick={this.props.onCaptureDelet}><span className="icon-arrow-left item"></span></div>
           </div>
           <div className="row font-1">
-            
-            <div className="col-12 p-3 orange item" onClick={this.props.equal}>=</div>
+           <div className="col-12 p-3 orange item" onClick={this.props.equal}>=</div>
           </div>
         </div>
         <div className="container w30 radius col-md-5 console-style">
@@ -158,6 +159,10 @@ function mapDispatchToProps(dispatch) {
     },
     onCaptureDelet: () => {
       dispatch(actionDelete);
+    },
+    onCapturePoint: () => {
+      
+      dispatch(actionPoint);
     }
 
 

@@ -66,3 +66,7 @@ export   const actionReset = {
 export   const actionDelete = {
   type: 'DELETE'
 };
+
+export   const actionPoint = {
+  type: 'POINT'
+};

@@ -10,43 +10,45 @@ historial:[],
 
 // Reducer
 const reducer =  (state = initialState,action) =>{
-  console.log(action.type);
+  console.log(action.type , state.number);
     switch (action.type){
  
         case 'NUMBER_1' : 
-        return { ...state , number :parseInt(state.number+'1') } ;
+        return { ...state , number :state.number+'1' } ;
         case 'NUMBER_2' : 
-        return { ...state , number :parseInt(state.number+'2') };
+        return { ...state , number :state.number+'2' };
         case 'NUMBER_3' : 
-        return { ...state , number :parseInt(state.number+'3') };
+        return { ...state , number :state.number+'3' };
         case 'NUMBER_4' : 
-        return { ...state , number :parseInt(state.number+'4') };
+        return { ...state , number :state.number+'4' };
         case 'NUMBER_5' : 
-        return { ...state , number :parseInt(state.number+'5') };
+        return { ...state , number :state.number+'5' };
         case 'NUMBER_6' : 
-        return { ...state , number :parseInt(state.number+'6') };
+        return { ...state , number :state.number+'6' };
         case 'NUMBER_7' : 
-        return { ...state , number :parseInt(state.number+'7') };
+        return { ...state , number :state.number+'7' };
         case 'NUMBER_8' : 
-        return { ...state , number :parseInt(state.number+'8') };
+        return { ...state , number :state.number+'8' };
         case 'NUMBER_9' : 
-        return { ...state , number :parseInt(state.number+'9') };
+        return { ...state , number :state.number+'9' };
         case 'NUMBER_0' : 
-        return { ...state , number :parseInt(state.number+'0') };
+        return { ...state , number :state.number+'0' };
+        case 'POINT' : 
+        return { ...state , number :state.number+'.' };
         case 'SUM' : 
         return { ...state,numberCalculator: state.number,
-                                        number:0,operator:'+',historial:historial(state.number,state.historial)  };
+                                        number:0,operator:'+',historial:historial( parseFloat(state.number),state.historial)  };
         case 'REST' : 
         return { ...state,numberCalculator: state.number,
-                                        number:0,operator:'-',historial:historial(state.number,state.historial) };
+                                        number:0,operator:'-',historial:historial( parseFloat(state.number),state.historial) };
         case 'MULTI' : 
         return { ...state,numberCalculator: state.number,
-                                        number:0,operator:'*',historial:historial(state.number,state.historial) }; 
+                                        number:0,operator:'*',historial:historial(parseFloat(state.number),state.historial) }; 
         case 'DIVI' : 
         return { ...state,numberCalculator: state.number,
-                                        number:0,operator:'/',historial:historial(state.number,state.historial) };                               
+                                        number:0,operator:'/',historial:historial(parseFloat(state.number),state.historial) };                               
         case 'EQUAL' : 
-        return { ...state,number:opera(state.numberCalculator,state.number,state.operator) ,historial:historial(state.number,state.historial)};
+        return { ...state,number:opera(parseFloat(state.numberCalculator),parseFloat(state.number),state.operator) ,historial:historial(parseFloat(state.number),state.historial)};
         
         case 'RESET' : 
         return { ...state,number:0   };
