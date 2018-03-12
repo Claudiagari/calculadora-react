@@ -14,48 +14,47 @@ const reducer =  (state = initialState,action) =>{
     switch (action.type){
  
         case 'NUMBER_1' : 
-        return Object.assign({},state,{ number : parseInt(state.number+'1')   });
+        return { ...state , number :parseInt(state.number+'1') } ;
         case 'NUMBER_2' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'2')   });
+        return { ...state , number :parseInt(state.number+'2') };
         case 'NUMBER_3' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'3')   });
+        return { ...state , number :parseInt(state.number+'3') };
         case 'NUMBER_4' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'4' )  });
+        return { ...state , number :parseInt(state.number+'4') };
         case 'NUMBER_5' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'5')   });
+        return { ...state , number :parseInt(state.number+'5') };
         case 'NUMBER_6' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'6' )  });
+        return { ...state , number :parseInt(state.number+'6') };
         case 'NUMBER_7' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'7' )  });
+        return { ...state , number :parseInt(state.number+'7') };
         case 'NUMBER_8' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'8' )  });
+        return { ...state , number :parseInt(state.number+'8') };
         case 'NUMBER_9' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'9')   });
+        return { ...state , number :parseInt(state.number+'9') };
         case 'NUMBER_0' : 
-        return Object.assign({},state,{ number :parseInt(state.number+'0')   });
+        return { ...state , number :parseInt(state.number+'0') };
         case 'SUM' : 
-        return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'+',historial:historial(state.number,state.historial)  });
+        return { ...state,numberCalculator: state.number,
+                                        number:0,operator:'+',historial:historial(state.number,state.historial)  };
         case 'REST' : 
-        return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'-',historial:historial(state.number,state.historial) });
+        return { ...state,numberCalculator: state.number,
+                                        number:0,operator:'-',historial:historial(state.number,state.historial) };
         case 'MULTI' : 
-        return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'*',historial:historial(state.number,state.historial) }); 
+        return { ...state,numberCalculator: state.number,
+                                        number:0,operator:'*',historial:historial(state.number,state.historial) }; 
         case 'DIVI' : 
-        return Object.assign({},state,{ numberCalculator: state.number,
-                                        number:0,operator:'/',historial:historial(state.number,state.historial) });                               
+        return { ...state,numberCalculator: state.number,
+                                        number:0,operator:'/',historial:historial(state.number,state.historial) };                               
         case 'EQUAL' : 
-        return Object.assign({},state,{ number:opera(state.numberCalculator,state.number,state.operator) ,historial:historial(state.number,state.historial)});
+        return { ...state,number:opera(state.numberCalculator,state.number,state.operator) ,historial:historial(state.number,state.historial)};
         
         case 'RESET' : 
-        return Object.assign({},state,{ number:0   });
+        return { ...state,number:0   };
         
         case 'DELETE':
-        return Object.assign({},state,{number:deleteNum(state.number)});
+        return {...state,number:deleteNum(state.number)};
        
-       
-        
+               
         default : 
         return state;
     }
