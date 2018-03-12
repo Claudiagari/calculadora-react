@@ -26,7 +26,7 @@ import '../icon/style.css'
 class Calculator extends Component {
   render() {
     return (
-      <div>
+      <div className="text-center">
       
       <div className="d-flex align-items-center h100 ">
         <div className="container w30 bg-grey radius col-md-4">
